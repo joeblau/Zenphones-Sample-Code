@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Zenphones" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,8 +16,92 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="L8C-V0-d4F" customClass="AKPropertySlider">
+                                <rect key="frame" x="14" y="51" width="572" height="31"/>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zvK-tq-ahm" customClass="AKPropertySlider">
+                                <rect key="frame" x="14" y="111" width="572" height="31"/>
+                            </slider>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="41F-cZ-Fgv">
+                                <rect key="frame" x="276" y="182" width="51" height="31"/>
+                                <connections>
+                                    <action selector="invertPhase:" destination="vXZ-lx-hvc" eventType="valueChanged" id="708-wB-WQY"/>
+                                </connections>
+                            </switch>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZl-Rj-g4O" customClass="AKAudioOutputPlot">
+                                <rect key="frame" x="16" y="380" width="568" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Glb-r2-IsG"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxM-oF-9if" customClass="AKAudioInputPlot">
+                                <rect key="frame" x="16" y="380" width="568" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="vEQ-9Y-9sC"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="3HZ-kd-BU2" customClass="AKPropertySlider">
+                                <rect key="frame" x="14" y="251" width="572" height="31"/>
+                                <connections>
+                                    <action selector="delaySliderValue:" destination="vXZ-lx-hvc" eventType="valueChanged" id="uzV-Kl-Zba"/>
+                                </connections>
+                            </slider>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="41F-cZ-Fgv" firstAttribute="centerX" secondItem="zvK-tq-ahm" secondAttribute="centerX" constant="0.5" id="0Fh-ch-mi5"/>
+                            <constraint firstItem="zvK-tq-ahm" firstAttribute="top" secondItem="L8C-V0-d4F" secondAttribute="bottom" constant="30" id="1yo-Tq-C0a"/>
+                            <constraint firstItem="SZl-Rj-g4O" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="2V0-FD-m5j"/>
+                            <constraint firstItem="SZl-Rj-g4O" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="34a-9T-61P"/>
+                            <constraint firstItem="L8C-V0-d4F" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="31" id="7GZ-V3-eop"/>
+                            <constraint firstItem="SZl-Rj-g4O" firstAttribute="top" secondItem="DxM-oF-9if" secondAttribute="bottom" constant="8" id="Bi1-xD-3w7"/>
+                            <constraint firstItem="L8C-V0-d4F" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="FbY-aX-EZI"/>
+                            <constraint firstItem="DxM-oF-9if" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="K9c-QN-ywC"/>
+                            <constraint firstItem="zvK-tq-ahm" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Mf6-Ex-2ze"/>
+                            <constraint firstItem="41F-cZ-Fgv" firstAttribute="centerX" secondItem="3HZ-kd-BU2" secondAttribute="centerX" constant="0.5" id="Nwl-vg-uIC"/>
+                            <constraint firstItem="3HZ-kd-BU2" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Plp-Tx-eA7"/>
+                            <constraint firstItem="DxM-oF-9if" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="SWb-Fw-Bm4"/>
+                            <constraint firstItem="41F-cZ-Fgv" firstAttribute="top" secondItem="zvK-tq-ahm" secondAttribute="bottom" constant="41" id="bch-T9-nKI"/>
+                            <constraint firstItem="zvK-tq-ahm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="iYU-Sw-s0U"/>
+                            <constraint firstItem="3HZ-kd-BU2" firstAttribute="top" secondItem="41F-cZ-Fgv" secondAttribute="bottom" constant="38" id="jee-G8-KMJ"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="SZl-Rj-g4O" secondAttribute="bottom" constant="20" id="nfc-YC-8EL"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="DxM-oF-9if" secondAttribute="bottom" constant="20" id="q8V-PF-EGa"/>
+                            <constraint firstItem="L8C-V0-d4F" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="v1d-bg-Amd"/>
+                            <constraint firstItem="3HZ-kd-BU2" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="yJT-sI-Sai"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Bi1-xD-3w7"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="delaySlider" destination="3HZ-kd-BU2" id="YBD-9q-dzy"/>
+                        <outlet property="highPassFilterSlider" destination="zvK-tq-ahm" id="pAj-cK-dw7"/>
+                        <outlet property="inputPlot" destination="DxM-oF-9if" id="np7-F4-W8r"/>
+                        <outlet property="lowPassFilterSlider" destination="L8C-V0-d4F" id="1FA-WH-RLd"/>
+                        <outlet property="outputPlot" destination="SZl-Rj-g4O" id="J0P-hD-76s"/>
+                        <outlet property="phaseInversionSwitch" destination="41F-cZ-Fgv" id="ZGt-Og-1eS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

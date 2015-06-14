@@ -13,6 +13,9 @@
 		ED5717F71B2C97FF0083DAAD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED5717F61B2C97FF0083DAAD /* Images.xcassets */; };
 		ED5717FA1B2C97FF0083DAAD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED5717F81B2C97FF0083DAAD /* LaunchScreen.xib */; };
 		ED5718061B2C97FF0083DAAD /* ZenphonesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5718051B2C97FF0083DAAD /* ZenphonesTests.swift */; };
+		ED5718101B2C98680083DAAD /* Zenophone.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED57180F1B2C98680083DAAD /* Zenophone.swift */; };
+		EDD6696D1B2D16850011FFF5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6696C1B2D16850011FFF5 /* Extensions.swift */; };
+		FF246F4B3426E736B1D69E35 /* Pods_Zenphones.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD324FEAB5B00524D835DE8 /* Pods_Zenphones.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D0554364EFA5AC5A52EEE76 /* Pods-Zenphones.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zenphones.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zenphones/Pods-Zenphones.debug.xcconfig"; sourceTree = "<group>"; };
+		2DD324FEAB5B00524D835DE8 /* Pods_Zenphones.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zenphones.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8F100833D5F0DFB48BFDF1C /* Pods-Zenphones.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zenphones.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zenphones/Pods-Zenphones.release.xcconfig"; sourceTree = "<group>"; };
 		ED5717EA1B2C97FF0083DAAD /* Zenphones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zenphones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED5717EE1B2C97FF0083DAAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED5717EF1B2C97FF0083DAAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +42,8 @@
 		ED5717FF1B2C97FF0083DAAD /* ZenphonesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZenphonesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED5718041B2C97FF0083DAAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED5718051B2C97FF0083DAAD /* ZenphonesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenphonesTests.swift; sourceTree = "<group>"; };
+		ED57180F1B2C98680083DAAD /* Zenophone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Zenophone.swift; sourceTree = "<group>"; };
+		EDD6696C1B2D16850011FFF5 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF246F4B3426E736B1D69E35 /* Pods_Zenphones.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +65,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34BB1A31464F779DDA51EA3A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DD324FEAB5B00524D835DE8 /* Pods_Zenphones.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A949B7E61326D9FDF6383110 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0D0554364EFA5AC5A52EEE76 /* Pods-Zenphones.debug.xcconfig */,
+				B8F100833D5F0DFB48BFDF1C /* Pods-Zenphones.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		ED5717E11B2C97FF0083DAAD = {
 			isa = PBXGroup;
 			children = (
 				ED5717EC1B2C97FF0083DAAD /* Zenphones */,
 				ED5718021B2C97FF0083DAAD /* ZenphonesTests */,
 				ED5717EB1B2C97FF0083DAAD /* Products */,
+				A949B7E61326D9FDF6383110 /* Pods */,
+				34BB1A31464F779DDA51EA3A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,11 +106,13 @@
 			isa = PBXGroup;
 			children = (
 				ED5717EF1B2C97FF0083DAAD /* AppDelegate.swift */,
+				ED57180F1B2C98680083DAAD /* Zenophone.swift */,
 				ED5717F11B2C97FF0083DAAD /* ViewController.swift */,
 				ED5717F31B2C97FF0083DAAD /* Main.storyboard */,
 				ED5717F61B2C97FF0083DAAD /* Images.xcassets */,
 				ED5717F81B2C97FF0083DAAD /* LaunchScreen.xib */,
 				ED5717ED1B2C97FF0083DAAD /* Supporting Files */,
+				EDD6696C1B2D16850011FFF5 /* Extensions.swift */,
 			);
 			path = Zenphones;
 			sourceTree = "<group>";
@@ -119,9 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED5718091B2C97FF0083DAAD /* Build configuration list for PBXNativeTarget "Zenphones" */;
 			buildPhases = (
+				E211C9D4CF8B233AD90B4558 /* Check Pods Manifest.lock */,
 				ED5717E61B2C97FF0083DAAD /* Sources */,
 				ED5717E71B2C97FF0083DAAD /* Frameworks */,
 				ED5717E81B2C97FF0083DAAD /* Resources */,
+				AA61808B3505437443CE7605 /* Embed Pods Frameworks */,
+				C4C203E6BED5AE4564CEC28F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,13 +240,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AA61808B3505437443CE7605 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zenphones/Pods-Zenphones-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4C203E6BED5AE4564CEC28F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zenphones/Pods-Zenphones-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E211C9D4CF8B233AD90B4558 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ED5717E61B2C97FF0083DAAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				ED5717F21B2C97FF0083DAAD /* ViewController.swift in Sources */,
+				ED5718101B2C98680083DAAD /* Zenophone.swift in Sources */,
 				ED5717F01B2C97FF0083DAAD /* AppDelegate.swift in Sources */,
+				EDD6696D1B2D16850011FFF5 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +421,7 @@
 		};
 		ED57180A1B2C97FF0083DAAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D0554364EFA5AC5A52EEE76 /* Pods-Zenphones.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Zenphones/Info.plist;
@@ -348,6 +432,7 @@
 		};
 		ED57180B1B2C97FF0083DAAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8F100833D5F0DFB48BFDF1C /* Pods-Zenphones.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Zenphones/Info.plist;
@@ -409,6 +494,7 @@
 				ED57180B1B2C97FF0083DAAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED57180C1B2C97FF0083DAAD /* Build configuration list for PBXNativeTarget "ZenphonesTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +503,7 @@
 				ED57180E1B2C97FF0083DAAD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

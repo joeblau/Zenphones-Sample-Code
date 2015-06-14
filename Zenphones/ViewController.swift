@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftLog
 import AudioKit
 
 class ViewController: UIViewController {
@@ -43,25 +44,24 @@ class ViewController: UIViewController {
         
         microphone.start()
         analyzer.start()
-
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        println(FLT_MIN)
-        
+        runAnalytics()
+    }
+    
+    func runAnalytics() {
         let increment: Float = 0.00000000000000000000000000000000000000000001
         microphone.stepDelaySync.value = 0.0000000000000000000000000000000000000117549
-        
+
         for (var idx = FLT_MIN; idx < 1.0; idx+=increment) {
             microphone.stepDelaySync.value = idx
             if (analyzer.trackedAmplitude.value < 0.00006) {
-                println("************************************* NEW LOW *********************")
-                println("\(microphone.stepDelaySync.value) \t: \(analyzer.trackedAmplitude.value)")
+                logw("Below Threshold: \(microphone.stepDelaySync.value) \t: \(analyzer.trackedAmplitude.value)")
             }
         }
-        println("DONE")
+        logw("DONE")
     }
     
     @IBAction func invertPhase(sender: UISwitch) {

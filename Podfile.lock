@@ -1,10 +1,13 @@
 PODS:
   - AudioKit (2.1.1)
+  - SwiftLog (0.9.1)
 
 DEPENDENCIES:
   - AudioKit
+  - SwiftLog (~> 0.9)
 
 SPEC CHECKSUMS:
   AudioKit: 54c92607d7c0fe14035793e81afe1717324ce5fa
+  SwiftLog: 82dc4ef232f2029efd76bc7a4f922d5a5b065f8c
 
 COCOAPODS: 0.37.2

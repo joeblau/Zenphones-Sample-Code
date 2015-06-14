@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'Zenphones' do
 pod 'AudioKit'
+pod 'SwiftLog', '~> 0.9'
 end
 
 target 'ZenphonesTests' do

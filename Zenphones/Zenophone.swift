@@ -19,7 +19,7 @@ class Zenophone: AKInstrument {
     let invertInstrumentPhase = AKInstrumentProperty(value: 1.0)
     let delaySync = AKInstrumentProperty(value: 0, minimum: 0, maximum: 4.0)
     
-    let stepDelaySync = AKInstrumentProperty(value: 1.0)
+    let stepDelaySync = AKInstrumentProperty(value: 0.0000000000000000000000000000000000000117549)
     
     override init() {
         super.init()
@@ -51,7 +51,7 @@ class Zenophone: AKInstrument {
 //        enableParameterLog("Inverted: ", parameter: im, timeInterval: 1)
 
         appendOutput(auxilliaryOutput, withInput: del)
-        setAudioOutput(del)
+//        setAudioOutput(del)
 
     }
 }

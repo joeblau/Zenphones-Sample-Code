@@ -20,9 +20,7 @@ class Zenophone: AKInstrument {
     let delaySync = AKInstrumentProperty(value: 0, minimum: 0, maximum: 4.0)
     
     override init() {
-        super.init()
-//        AKManager.sharedManager().isLogging = true
-        
+        super.init()        
         let microphone = AKAudioInput()
 
         // Low pass to filter out high frequences
@@ -34,18 +32,6 @@ class Zenophone: AKInstrument {
         // Phase Inversion to cancel remaining frequences
         let im = hpf.scaledBy(invertInstrumentPhase)
 
-//        let del = AKVariableDelay(input: im)
-//        del.delayTime = stepDelaySync
-//        AKVariableDelay(input: im, delayTime: delaySync, maximumDelayTime: <#AKConstant#>)
-//        let del = AKDelay(input: im, delayTime: 0.005.ak, feedback: 0.0.ak)
-        
-        
-//        let mix = AKMix(input1: microphone, input2: im, balance: (0.5).ak)
-        
-//        enableParameterLog("Micropho: ", parameter: hpf, timeInterval: 1)
-//        enableParameterLog("Inverted: ", parameter: im, timeInterval: 1)
-
-//        appendOutput(auxilliaryOutput, withInput: del)
         setAudioOutput(im)
     }
 }

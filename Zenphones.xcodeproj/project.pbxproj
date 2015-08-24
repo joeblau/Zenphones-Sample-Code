@@ -195,6 +195,7 @@
 				TargetAttributes = {
 					ED5717E91B2C97FF0083DAAD = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = K78G42H4U2;
 					};
 					ED5717FE1B2C97FF0083DAAD = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -425,6 +426,7 @@
 			baseConfigurationReference = 0D0554364EFA5AC5A52EEE76 /* Pods-Zenphones.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Zenphones/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -437,6 +439,7 @@
 			baseConfigurationReference = B8F100833D5F0DFB48BFDF1C /* Pods-Zenphones.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Zenphones/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

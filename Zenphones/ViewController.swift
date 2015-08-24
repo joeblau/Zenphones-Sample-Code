@@ -52,6 +52,7 @@ class ViewController: UIViewController, TTRangeSliderDelegate {
         microphone.highPassCutoffFrequency.value = selectedMinimum
         microphone.lowPassCutoffFrequency.value = selectedMaximum
     }
+    
     @IBAction func zenphoneEnable(sender: UISwitch) {
         enableZenphonesVisibleSwitch.setOn(sender.on, animated: true)
         switch sender.on {

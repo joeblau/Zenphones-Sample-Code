@@ -23,6 +23,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
+                                        <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5K5-wi-n0G">
+                                            <rect key="frame" x="543" y="74" width="51" height="31"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="onTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </switch>
+                                        <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aRj-Rh-E8A">
+                                            <rect key="frame" x="543" y="123" width="51" height="31"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="onTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Zenphones" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEc-47-7on">
                                             <rect key="frame" x="8" y="64" width="584" height="50"/>
                                             <animations/>
@@ -53,6 +65,16 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input / Output Audio Plot" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cy0-H9-bag">
+                                            <rect key="frame" x="8" y="372" width="584" height="20"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="ta6-tg-auB"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gZ-Ye-2gm">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="J3p-TU-7Tw">
@@ -64,8 +86,7 @@
                                                         <animations/>
                                                         <color key="onTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
-                                                            <action selector="invertPhase:" destination="vXZ-lx-hvc" eventType="valueChanged" id="F1j-DD-hjF"/>
-                                                            <action selector="zenphoneEnable:" destination="vXZ-lx-hvc" eventType="valueChanged" id="CzG-cr-3vT"/>
+                                                            <action selector="zenphoneEnable:" destination="vXZ-lx-hvc" eventType="valueChanged" id="DkP-8s-QG0"/>
                                                         </connections>
                                                     </switch>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xM-8d-NK7" customClass="TTRangeSlider">
@@ -95,7 +116,7 @@
                                                         </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZl-Rj-g4O" customClass="AKAudioOutputPlot">
-                                                        <rect key="frame" x="8" y="392" width="584" height="200"/>
+                                                        <rect key="frame" x="0.0" y="392" width="600" height="200"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -103,15 +124,15 @@
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                                                <real key="value" value="2"/>
+                                                                <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxM-oF-9if" customClass="AKAudioInputPlot">
-                                                        <rect key="frame" x="8" y="392" width="584" height="200"/>
+                                                        <rect key="frame" x="0.0" y="392" width="600" height="200"/>
                                                         <animations/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -119,7 +140,7 @@
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                                                <real key="value" value="2"/>
+                                                                <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
                                                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -131,25 +152,25 @@
                                                         <animations/>
                                                         <color key="onTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
-                                                            <action selector="invertPhase:" destination="vXZ-lx-hvc" eventType="valueChanged" id="708-wB-WQY"/>
+                                                            <action selector="invertPhase:" destination="vXZ-lx-hvc" eventType="valueChanged" id="4NA-hg-o2S"/>
                                                         </connections>
                                                     </switch>
                                                 </subviews>
                                                 <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="7xM-8d-NK7" secondAttribute="trailing" constant="8" id="2HD-d9-k9F"/>
-                                                    <constraint firstItem="SZl-Rj-g4O" firstAttribute="leading" secondItem="J3p-TU-7Tw" secondAttribute="leading" constant="8" id="44B-af-b3C"/>
+                                                    <constraint firstItem="SZl-Rj-g4O" firstAttribute="leading" secondItem="J3p-TU-7Tw" secondAttribute="leading" id="44B-af-b3C"/>
                                                     <constraint firstItem="7xM-8d-NK7" firstAttribute="leading" secondItem="J3p-TU-7Tw" secondAttribute="leading" constant="8" id="D5x-GK-frz"/>
                                                     <constraint firstAttribute="bottom" secondItem="DxM-oF-9if" secondAttribute="bottom" constant="8" id="JTt-fQ-hwE"/>
                                                     <constraint firstAttribute="trailing" secondItem="41F-cZ-Fgv" secondAttribute="trailing" constant="8" id="TrY-dW-EQu"/>
-                                                    <constraint firstAttribute="trailing" secondItem="SZl-Rj-g4O" secondAttribute="trailing" constant="8" id="atk-RV-JnJ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="SZl-Rj-g4O" secondAttribute="trailing" id="atk-RV-JnJ"/>
                                                     <constraint firstAttribute="bottom" secondItem="SZl-Rj-g4O" secondAttribute="bottom" constant="8" id="bxE-dP-3Jg"/>
                                                     <constraint firstAttribute="trailing" secondItem="djj-kd-gLu" secondAttribute="trailing" constant="8" id="f0z-VT-iEK"/>
                                                     <constraint firstItem="7xM-8d-NK7" firstAttribute="top" secondItem="J3p-TU-7Tw" secondAttribute="top" constant="184" id="sU2-a4-gkt"/>
                                                     <constraint firstItem="djj-kd-gLu" firstAttribute="top" secondItem="J3p-TU-7Tw" secondAttribute="top" constant="74" id="tk8-QI-o1D"/>
-                                                    <constraint firstAttribute="trailing" secondItem="DxM-oF-9if" secondAttribute="trailing" constant="8" id="ukU-4v-HAS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="DxM-oF-9if" secondAttribute="trailing" id="ukU-4v-HAS"/>
                                                     <constraint firstItem="41F-cZ-Fgv" firstAttribute="top" secondItem="djj-kd-gLu" secondAttribute="bottom" constant="18" id="wBI-xM-hP2"/>
-                                                    <constraint firstItem="DxM-oF-9if" firstAttribute="leading" secondItem="J3p-TU-7Tw" secondAttribute="leading" constant="8" id="yje-FW-btl"/>
+                                                    <constraint firstItem="DxM-oF-9if" firstAttribute="leading" secondItem="J3p-TU-7Tw" secondAttribute="leading" id="yje-FW-btl"/>
                                                 </constraints>
                                             </view>
                                             <animations/>
@@ -164,11 +185,18 @@
                                         <constraint firstItem="4hS-X6-EZU" firstAttribute="top" secondItem="wAP-QM-F4S" secondAttribute="bottom" id="4iy-04-T0g"/>
                                         <constraint firstItem="wAP-QM-F4S" firstAttribute="leading" secondItem="553-BW-mUz" secondAttribute="leading" constant="8" id="63x-G5-mzg"/>
                                         <constraint firstAttribute="trailing" secondItem="TEc-47-7on" secondAttribute="trailing" constant="8" id="98k-kF-zkc"/>
+                                        <constraint firstAttribute="bottom" secondItem="cy0-H9-bag" secondAttribute="bottom" constant="208" id="DCj-1h-zMe"/>
+                                        <constraint firstItem="aRj-Rh-E8A" firstAttribute="top" secondItem="5K5-wi-n0G" secondAttribute="bottom" constant="18" id="EkF-EZ-Lmb"/>
+                                        <constraint firstItem="5K5-wi-n0G" firstAttribute="top" secondItem="553-BW-mUz" secondAttribute="top" constant="74" id="FGv-TW-kcw"/>
                                         <constraint firstAttribute="trailing" secondItem="wAP-QM-F4S" secondAttribute="trailing" constant="8" id="IeY-g7-zwf"/>
                                         <constraint firstItem="wAP-QM-F4S" firstAttribute="top" secondItem="TEc-47-7on" secondAttribute="bottom" id="MrT-ho-rLr"/>
                                         <constraint firstAttribute="bottom" secondItem="6gZ-Ye-2gm" secondAttribute="bottom" id="NNR-Xu-TkY"/>
+                                        <constraint firstAttribute="trailing" secondItem="cy0-H9-bag" secondAttribute="trailing" constant="8" id="OqR-wn-cki"/>
+                                        <constraint firstItem="cy0-H9-bag" firstAttribute="leading" secondItem="553-BW-mUz" secondAttribute="leading" constant="8" id="Qv5-Vo-rAb"/>
                                         <constraint firstAttribute="trailing" secondItem="4hS-X6-EZU" secondAttribute="trailing" constant="8" id="Rvs-b3-arl"/>
+                                        <constraint firstAttribute="trailing" secondItem="5K5-wi-n0G" secondAttribute="trailing" constant="8" id="Sgw-ve-o1o"/>
                                         <constraint firstItem="6gZ-Ye-2gm" firstAttribute="leading" secondItem="553-BW-mUz" secondAttribute="leading" id="eeP-VO-qpO"/>
+                                        <constraint firstAttribute="trailing" secondItem="aRj-Rh-E8A" secondAttribute="trailing" constant="8" id="erD-Hq-wh8"/>
                                         <constraint firstItem="TEc-47-7on" firstAttribute="leading" secondItem="553-BW-mUz" secondAttribute="leading" constant="8" id="lRf-GT-70k"/>
                                         <constraint firstItem="6gZ-Ye-2gm" firstAttribute="top" secondItem="553-BW-mUz" secondAttribute="top" id="ns0-4T-6xL"/>
                                         <constraint firstItem="4hS-X6-EZU" firstAttribute="leading" secondItem="553-BW-mUz" secondAttribute="leading" constant="8" id="nzH-3e-JcB"/>
@@ -192,9 +220,11 @@
                     <connections>
                         <outlet property="bandPassFilterRangeSlider" destination="7xM-8d-NK7" id="Utp-Q2-IBL"/>
                         <outlet property="enableZenphonesSwitch" destination="djj-kd-gLu" id="NcZ-BI-rXZ"/>
+                        <outlet property="enableZenphonesVisibleSwitch" destination="5K5-wi-n0G" id="GfG-Mb-GYQ"/>
                         <outlet property="inputPlot" destination="DxM-oF-9if" id="np7-F4-W8r"/>
                         <outlet property="outputPlot" destination="SZl-Rj-g4O" id="J0P-hD-76s"/>
                         <outlet property="phaseInversionSwitch" destination="41F-cZ-Fgv" id="ZGt-Og-1eS"/>
+                        <outlet property="phaseInversionVisibleSwitch" destination="aRj-Rh-E8A" id="uFa-Uj-pXj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

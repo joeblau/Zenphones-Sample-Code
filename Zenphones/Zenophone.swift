@@ -8,7 +8,7 @@
 
 import AudioKit
 
-// This is the microphone input and processor for the zenophones
+// This is the microphone input and processor for Zenophones
 
 class Zenophone: AKInstrument {
 
@@ -18,8 +18,6 @@ class Zenophone: AKInstrument {
     let highPassCutoffFrequency  = AKInstrumentProperty(value: 20, minimum: 0, maximum: 20000)
     let invertInstrumentPhase = AKInstrumentProperty(value: 1.0)
     let delaySync = AKInstrumentProperty(value: 0, minimum: 0, maximum: 4.0)
-    
-//    let stepDelaySync = AKInstrumentProperty(value: 0.0000000000000000000000000000000000000117549)
     
     override init() {
         super.init()
@@ -36,8 +34,6 @@ class Zenophone: AKInstrument {
         // Phase Inversion to cancel remaining frequences
         let im = hpf.scaledBy(invertInstrumentPhase)
 
-
-
 //        let del = AKVariableDelay(input: im)
 //        del.delayTime = stepDelaySync
 //        AKVariableDelay(input: im, delayTime: delaySync, maximumDelayTime: <#AKConstant#>)
@@ -51,6 +47,5 @@ class Zenophone: AKInstrument {
 
 //        appendOutput(auxilliaryOutput, withInput: del)
         setAudioOutput(im)
-
     }
 }

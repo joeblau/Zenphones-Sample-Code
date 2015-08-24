@@ -11,9 +11,12 @@ import AudioKit
 import TTRangeSlider
 
 class ViewController: UIViewController, TTRangeSliderDelegate {
+    
     @IBOutlet weak var bandPassFilterRangeSlider: TTRangeSlider!
     @IBOutlet weak var enableZenphonesSwitch: UISwitch!
+    @IBOutlet weak var enableZenphonesVisibleSwitch: UISwitch!
     @IBOutlet weak var phaseInversionSwitch: UISwitch!
+    @IBOutlet weak var phaseInversionVisibleSwitch: UISwitch!
     @IBOutlet weak var inputPlot: AKAudioInputPlot!
     @IBOutlet weak var outputPlot: AKAudioOutputPlot!
     
@@ -45,26 +48,12 @@ class ViewController: UIViewController, TTRangeSliderDelegate {
         microphone.start()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-//            let increment: Float = 0.00000000000000000000000000000000000000000001
-//            self.microphone.stepDelaySync.value = 0.0000000000000000000000000000000000000117549
-//            
-//            for (var idx = FLT_MIN; idx < 1.0; idx+=increment) {
-//                self.microphone.stepDelaySync.value = idx
-//            }
-//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                self.syndDelayLabel.text = "Done"
-//            })
-//        })
-    }
-    
     func rangeSlider(sender: TTRangeSlider!, didChangeSelectedMinimumValue selectedMinimum: Float, andMaximumValue selectedMaximum: Float) {
         microphone.highPassCutoffFrequency.value = selectedMinimum
         microphone.lowPassCutoffFrequency.value = selectedMaximum
     }
     @IBAction func zenphoneEnable(sender: UISwitch) {
+        enableZenphonesVisibleSwitch.setOn(sender.on, animated: true)
         switch sender.on {
         case true: microphone.start()
         case false: microphone.stop()
@@ -72,6 +61,7 @@ class ViewController: UIViewController, TTRangeSliderDelegate {
     }
     
     @IBAction func invertPhase(sender: UISwitch) {
+        phaseInversionVisibleSwitch.setOn(sender.on, animated: true)
         setPhase(sender)
     }
     

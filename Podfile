@@ -5,7 +5,7 @@ use_frameworks!
 
 target 'Zenphones' do
 pod 'AudioKit'
-pod 'SwiftLog', '~> 0.9'
+pod 'TTRangeSlider', '~> 1.0'
 end
 
 target 'ZenphonesTests' do

@@ -1,13 +1,13 @@
 PODS:
   - AudioKit (2.1.1)
-  - SwiftLog (0.9.1)
+  - TTRangeSlider (1.0.3)
 
 DEPENDENCIES:
   - AudioKit
-  - SwiftLog (~> 0.9)
+  - TTRangeSlider (~> 1.0)
 
 SPEC CHECKSUMS:
   AudioKit: 54c92607d7c0fe14035793e81afe1717324ce5fa
-  SwiftLog: 82dc4ef232f2029efd76bc7a4f922d5a5b065f8c
+  TTRangeSlider: a12d0ac242a785cf96d4c7dacfe07e42a161251e
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.38.2

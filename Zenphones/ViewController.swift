@@ -7,68 +7,78 @@
 //
 
 import UIKit
-import SwiftLog
 import AudioKit
+import TTRangeSlider
 
-class ViewController: UIViewController {
-    @IBOutlet weak var lowPassFilterSlider: AKPropertySlider!
-    @IBOutlet weak var highPassFilterSlider: AKPropertySlider!
+class ViewController: UIViewController, TTRangeSliderDelegate {
+    @IBOutlet weak var bandPassFilterRangeSlider: TTRangeSlider!
+    @IBOutlet weak var enableZenphonesSwitch: UISwitch!
     @IBOutlet weak var phaseInversionSwitch: UISwitch!
-    
-    @IBOutlet weak var delaySlider: AKPropertySlider!
-
     @IBOutlet weak var inputPlot: AKAudioInputPlot!
     @IBOutlet weak var outputPlot: AKAudioOutputPlot!
     
-    
     let microphone = Zenophone()
-    var analyzer = AKAudioAnalyzer()
+    var gradientLayer = CAGradientLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        microphone.invertInstrumentPhase.value = -1.0
+
+        // Set Gradient
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor(red: 0.937, green: 0.325, blue: 0.314, alpha: 1.0).CGColor,
+            UIColor(red: 0.671, green: 0.278, blue: 0.737, alpha: 1.0).CGColor]
+        gradientLayer.startPoint = CGPointMake(0.0, 0.5)
+        gradientLayer.endPoint = CGPointMake(1.0, 0.5)
+        view.layer.insertSublayer(gradientLayer, atIndex: 0)
         
-        analyzer = AKAudioAnalyzer(audioSource: microphone.auxilliaryOutput)
-            
-        AKOrchestra.addInstrument(microphone)
-        AKOrchestra.addInstrument(analyzer)
+        setPhase(phaseInversionSwitch)              // Set Phase
+        AKOrchestra.addInstrument(microphone)       // Add microphone to orchestra
         
         // Add slider properties
-        lowPassFilterSlider.property = microphone.lowPassCutoffFrequency
-        highPassFilterSlider.property = microphone.highPassCutoffFrequency
-        delaySlider.property = microphone.delaySync
-        
+        bandPassFilterRangeSlider.delegate = self
+        bandPassFilterRangeSlider.selectedMinimum = microphone.highPassCutoffFrequency.value
+        bandPassFilterRangeSlider.selectedMaximum = microphone.lowPassCutoffFrequency.value
         
         AKManager.addBinding(inputPlot)
         AKManager.addBinding(outputPlot)
         
         microphone.start()
-        analyzer.start()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        runAnalytics()
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+//            let increment: Float = 0.00000000000000000000000000000000000000000001
+//            self.microphone.stepDelaySync.value = 0.0000000000000000000000000000000000000117549
+//            
+//            for (var idx = FLT_MIN; idx < 1.0; idx+=increment) {
+//                self.microphone.stepDelaySync.value = idx
+//            }
+//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                self.syndDelayLabel.text = "Done"
+//            })
+//        })
     }
     
-    func runAnalytics() {
-        let increment: Float = 0.00000000000000000000000000000000000000000001
-        microphone.stepDelaySync.value = 0.0000000000000000000000000000000000000117549
-
-        for (var idx = FLT_MIN; idx < 1.0; idx+=increment) {
-            microphone.stepDelaySync.value = idx
-            if (analyzer.trackedAmplitude.value < 0.00006) {
-                logw("Below Threshold: \(microphone.stepDelaySync.value) \t: \(analyzer.trackedAmplitude.value)")
-            }
+    func rangeSlider(sender: TTRangeSlider!, didChangeSelectedMinimumValue selectedMinimum: Float, andMaximumValue selectedMaximum: Float) {
+        microphone.highPassCutoffFrequency.value = selectedMinimum
+        microphone.lowPassCutoffFrequency.value = selectedMaximum
+    }
+    @IBAction func zenphoneEnable(sender: UISwitch) {
+        switch sender.on {
+        case true: microphone.start()
+        case false: microphone.stop()
         }
-        logw("DONE")
     }
     
     @IBAction func invertPhase(sender: UISwitch) {
-        microphone.invertInstrumentPhase.value = sender.on ? -1.0 : 1.0
+        setPhase(sender)
     }
-
-    @IBAction func delaySliderValue(sender: AKPropertySlider) {
-        println("sender: \(sender.property.value)")
+    
+    private func setPhase(phaseSwitch: UISwitch) {
+        switch phaseSwitch.on {
+        case true: microphone.invertInstrumentPhase.value = -1.0
+        case false: microphone.invertInstrumentPhase.value = 1.0
+        }
     }
 }

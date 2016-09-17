@@ -9,15 +9,14 @@
 import AudioKit
 
 // This is the microphone input and processor for Zenophones
-
 class Zenophone: AKInstrument {
 
-    let auxilliaryOutput = AKAudio.global()
-    
+    private let auxilliaryOutput = AKAudio.global()
+    private let delaySync = AKInstrumentProperty(value: 0, minimum: 0, maximum: 4.0)
+
     let lowPassCutoffFrequency = AKInstrumentProperty(value: 6000, minimum: 0, maximum: 20000)
     let highPassCutoffFrequency  = AKInstrumentProperty(value: 20, minimum: 0, maximum: 20000)
     let invertInstrumentPhase = AKInstrumentProperty(value: 1.0)
-    let delaySync = AKInstrumentProperty(value: 0, minimum: 0, maximum: 4.0)
     
     override init() {
         super.init()        

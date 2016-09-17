@@ -20,8 +20,8 @@ class ViewController: UIViewController, TTRangeSliderDelegate {
     @IBOutlet weak var inputPlot: AKAudioInputPlot!
     @IBOutlet weak var outputPlot: AKAudioOutputPlot!
     
-    let microphone = Zenophone()
-    var gradientLayer = CAGradientLayer()
+    private let microphone = Zenophone()
+    private var gradientLayer = CAGradientLayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()

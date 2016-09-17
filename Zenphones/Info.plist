@@ -32,6 +32,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone For Noise Cancelling</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

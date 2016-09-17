@@ -9,19 +9,19 @@
 import Foundation
 import AudioKit
 
-func akp(num: Float) -> AKConstant {
+func akp(_ num: Float) -> AKConstant {
     return AKConstant(float: num)
 }
 
-func akpi(num: Int) -> AKConstant {
+func akpi(_ num: Int) -> AKConstant {
     return AKConstant(integer: num)
 }
 
-func akps(str: String) -> AKConstant {
+func akps(_ str: String) -> AKConstant {
     return AKConstant(string: str)
 }
 
-func akpfn(file: String) -> AKConstant {
+func akpfn(_ file: String) -> AKConstant {
     return AKConstant(filename: file)
 }
 
@@ -73,25 +73,25 @@ func - (left: AKConstant, right: AKConstant) -> AKConstant {
 }
 
 func * (left: AKParameter, right: AKParameter) -> AKParameter {
-    return left.scaledBy(right)
+    return left.scaled(by: right)
 }
 
 func * (left: AKControl, right: AKControl) -> AKControl {
-    return left.scaledBy(right)
+    return left.scaled(by: right)
 }
 
 func * (left: AKConstant, right: AKConstant) -> AKConstant {
-    return left.scaledBy(right)
+    return left.scaled(by: right)
 }
 
 func / (left: AKParameter, right: AKParameter) -> AKParameter {
-    return left.dividedBy(right)
+    return left.divided(by: right)
 }
 
 func / (left: AKControl, right: AKControl) -> AKControl {
-    return left.dividedBy(right)
+    return left.divided(by: right)
 }
 
 func / (left: AKConstant, right: AKConstant) -> AKConstant {
-    return left.dividedBy(right)
+    return left.divided(by: right)
 }

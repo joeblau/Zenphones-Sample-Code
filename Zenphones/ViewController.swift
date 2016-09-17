@@ -28,14 +28,14 @@ class ViewController: UIViewController, TTRangeSliderDelegate {
 
         // Set Gradient
         gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor(red: 0.937, green: 0.325, blue: 0.314, alpha: 1.0).CGColor,
-            UIColor(red: 0.671, green: 0.278, blue: 0.737, alpha: 1.0).CGColor]
-        gradientLayer.startPoint = CGPointMake(0.0, 0.5)
-        gradientLayer.endPoint = CGPointMake(1.0, 0.5)
-        view.layer.insertSublayer(gradientLayer, atIndex: 0)
+        gradientLayer.colors = [UIColor(red: 0.937, green: 0.325, blue: 0.314, alpha: 1.0).cgColor,
+            UIColor(red: 0.671, green: 0.278, blue: 0.737, alpha: 1.0).cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        view.layer.insertSublayer(gradientLayer, at: 0)
         
         setPhase(phaseInversionSwitch)              // Set Phase
-        AKOrchestra.addInstrument(microphone)       // Add microphone to orchestra
+        AKOrchestra.add(microphone)       // Add microphone to orchestra
         
         // Add slider properties
         bandPassFilterRangeSlider.delegate = self
@@ -48,26 +48,26 @@ class ViewController: UIViewController, TTRangeSliderDelegate {
         microphone.start()
     }
     
-    func rangeSlider(sender: TTRangeSlider!, didChangeSelectedMinimumValue selectedMinimum: Float, andMaximumValue selectedMaximum: Float) {
+    func rangeSlider(_ sender: TTRangeSlider!, didChangeSelectedMinimumValue selectedMinimum: Float, andMaximumValue selectedMaximum: Float) {
         microphone.highPassCutoffFrequency.value = selectedMinimum
         microphone.lowPassCutoffFrequency.value = selectedMaximum
     }
     
-    @IBAction func zenphoneEnable(sender: UISwitch) {
-        enableZenphonesVisibleSwitch.setOn(sender.on, animated: true)
-        switch sender.on {
+    @IBAction func zenphoneEnable(_ sender: UISwitch) {
+        enableZenphonesVisibleSwitch.setOn(sender.isOn, animated: true)
+        switch sender.isOn {
         case true: microphone.start()
         case false: microphone.stop()
         }
     }
     
-    @IBAction func invertPhase(sender: UISwitch) {
-        phaseInversionVisibleSwitch.setOn(sender.on, animated: true)
+    @IBAction func invertPhase(_ sender: UISwitch) {
+        phaseInversionVisibleSwitch.setOn(sender.isOn, animated: true)
         setPhase(sender)
     }
     
-    private func setPhase(phaseSwitch: UISwitch) {
-        switch phaseSwitch.on {
+    fileprivate func setPhase(_ phaseSwitch: UISwitch) {
+        switch phaseSwitch.isOn {
         case true: microphone.invertInstrumentPhase.value = -1.0
         case false: microphone.invertInstrumentPhase.value = 1.0
         }

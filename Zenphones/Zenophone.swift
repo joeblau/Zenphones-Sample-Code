@@ -12,7 +12,7 @@ import AudioKit
 
 class Zenophone: AKInstrument {
 
-    let auxilliaryOutput = AKAudio.globalParameter()
+    let auxilliaryOutput = AKAudio.global()
     
     let lowPassCutoffFrequency = AKInstrumentProperty(value: 6000, minimum: 0, maximum: 20000)
     let highPassCutoffFrequency  = AKInstrumentProperty(value: 20, minimum: 0, maximum: 20000)
@@ -30,7 +30,7 @@ class Zenophone: AKInstrument {
         let hpf = AKHighPassButterworthFilter(input: lpf, cutoffFrequency: highPassCutoffFrequency)
         
         // Phase Inversion to cancel remaining frequences
-        let im = hpf.scaledBy(invertInstrumentPhase)
+        let im = hpf.scaled(by: invertInstrumentPhase)
 
         setAudioOutput(im)
     }

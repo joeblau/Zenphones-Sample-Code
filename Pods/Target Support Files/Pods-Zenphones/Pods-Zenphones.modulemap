@@ -1,0 +1,6 @@
+framework module Pods_Zenphones {
+  umbrella header "Pods-Zenphones-umbrella.h"
+
+  export *
+  module * { export * }
+}
